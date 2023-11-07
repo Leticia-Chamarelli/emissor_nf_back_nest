@@ -30,14 +30,17 @@ export class AtividadesService {
   }
 
   async store(data: CreateAtividadeDto) {
-    const atividade = this.atividadesRepository.create(data);
-    return await this.atividadesRepository.save(atividade);
+    const atividades = this.atividadesRepository.create({
+      codigo: data.codigo,
+      descricao: data.descricao,
+    });
+    return await this.atividadesRepository.save(atividades);
   }
 
   async update(id: string, data: UpdateAtividadeDto) {
-    const atividade = await this.findOneOrFail({ id });
-    this.atividadesRepository.merge(atividade);
-    return await this.atividadesRepository.save(atividade);
+    const atividades = await this.findOneOrFail({ id });
+    atividades.descricao = data.descricao;
+    return await this.atividadesRepository.save(atividades);
   }
 
   async destroy(id: string) {

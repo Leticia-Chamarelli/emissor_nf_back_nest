@@ -1,96 +1,96 @@
-import { IsNotEmpty, IsUUID } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class UpdateNotasFiscaisDto {
-  @IsUUID()
-  empresa_id_prestador: string;
-
-  @IsUUID()
-  empresa_id_tomador: string;
-
-  @IsUUID()
-  intermediario_servico_tipo_pessoa_id: string;
+  @IsNotEmpty()
+  empresaIdPrestador: string;
 
   @IsNotEmpty()
-  intermediario_servico_cpf_cnpj: string;
+  empresaIdTomador: string;
 
   @IsNotEmpty()
-  intermediario_servico_ccm: string;
+  intermediarioServicoTipoPessoaId: string;
 
   @IsNotEmpty()
-  intermediario_servico_razao_social: string;
-
-  @IsUUID()
-  intermediario_servico_estados_id: string;
-
-  @IsUUID()
-  intermediario_servico_municipios_id: string;
-
-  @IsUUID()
-  prestacao_servico_exigibilidade_iss_id: string;
+  intermediarioServicoCpfCnpj: string;
 
   @IsNotEmpty()
-  prestacao_servico_numero_processo: number;
+  intermediarioServicoCcm: string;
 
   @IsNotEmpty()
-  prestacao_servico_optante_simples_nacional: string;
+  intermediarioServicoRazaoSocial: string;
 
   @IsNotEmpty()
-  prestacao_servico_regime_especial_tributacao: string;
+  intermediarioServicoEstadosId: string;
 
   @IsNotEmpty()
-  prestacao_servico_iss_retido: string;
+  intermediarioServicoMunicipiosId: string;
 
   @IsNotEmpty()
-  prestacao_servico_valor_servico: number;
+  prestacaoServicoExigibilidadeIssId: string;
 
   @IsNotEmpty()
-  prestacao_servico_aliquota: number;
+  prestacaoServicoNumeroProcesso: number;
 
   @IsNotEmpty()
-  prestacao_servico_valor_iss: number;
+  prestacaoServicoOptanteSimplesNacional: string;
 
   @IsNotEmpty()
-  prestacao_servico_valor_deducoes: number;
+  prestacaoServicoRegimeEspecialTributacao: string;
 
   @IsNotEmpty()
-  prestacao_servico_incentivo_fiscal: string;
-
-  @IsUUID()
-  local_realizacao_servicos_pais_id: string;
-
-  @IsUUID()
-  local_realizacao_servicos_estado_id: string;
-
-  @IsUUID()
-  local_realizacao_servicos_municipio_id: string;
+  prestacaoServicoIssRetido: string;
 
   @IsNotEmpty()
-  descricao_servico_discriminacao_servicos: string;
+  prestacaoServicoValorServico: number;
 
   @IsNotEmpty()
-  descricao_servico_observacoes: string;
+  prestacaoServicoAliquota: number;
 
   @IsNotEmpty()
-  valores_retencoes_inss: number;
+  prestacaoServicoValorIss: number;
 
   @IsNotEmpty()
-  valores_retencoes_ir: number;
+  prestacaoServicoValorDeducoes: number;
 
   @IsNotEmpty()
-  valores_retencoes_csll: number;
+  prestacaoServicoIncentivoFiscal: string;
 
   @IsNotEmpty()
-  valores_retencoes_cofins: number;
+  localRealizacaoServicosPaisId: string;
 
   @IsNotEmpty()
-  valores_retencoes_pis: number;
+  localRealizacaoServicosEstadoId: string;
 
   @IsNotEmpty()
-  valores_retencoes_outras_retencoes: number;
+  localRealizacaoServicosMunicipioId: string;
 
   @IsNotEmpty()
-  detalhamento_especifico_construcao_civil_numero_matricula_cei: number;
+  descricaoServicoDiscriminacaoServicos: string;
 
   @IsNotEmpty()
-  detalhamento_especifico_construcao_civil_numero_art: number;
+  descricaoServicoObservacoes: string;
+
+  @IsNotEmpty()
+  valoresRetencoesInss: number;
+
+  @IsNotEmpty()
+  valoresRetencoesIr: number;
+
+  @IsNotEmpty()
+  valoresRetencoesCsll: number;
+
+  @IsNotEmpty()
+  valoresRetencoesCofins: number;
+
+  @IsNotEmpty()
+  valoresRetencoesPis: number;
+
+  @IsNotEmpty()
+  valoresRetencoesOutrasRetencoes: number;
+
+  @IsNotEmpty()
+  detalhamentoEspecificoConstrucaoCivilNumeroMatriculaCei: number;
+
+  @IsNotEmpty()
+  detalhamentoEspecificoConstrucaoCivilNumeroArt: number;
 }

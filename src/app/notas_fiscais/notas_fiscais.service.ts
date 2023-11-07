@@ -13,42 +13,7 @@ export class NotasFiscaisService {
   ) {}
 
   async findAll() {
-    return await this.notasfiscaisRepository.find({
-      select: [
-        'id',
-        'empresa_id_prestador',
-        'empresa_id_tomador',
-        'intermediario_servico_tipo_pessoa_id',
-        'intermediario_servico_cpf_cnpj',
-        'intermediario_servico_ccm',
-        'intermediario_servico_razao_social',
-        'intermediario_servico_estados_id',
-        'intermediario_servico_municipios_id',
-        'prestacao_servico_exigibilidade_iss_id',
-        'prestacao_servico_numero_processo',
-        'prestacao_servico_optante_simples_nacional',
-        'prestacao_servico_regime_especial_tributacao',
-        'prestacao_servico_iss_retido',
-        'prestacao_servico_valor_servico',
-        'prestacao_servico_aliquota',
-        'prestacao_servico_valor_iss',
-        'prestacao_servico_valor_deducoes',
-        'prestacao_servico_incentivo_fiscal',
-        'local_realizacao_servicos_pais_id',
-        'local_realizacao_servicos_estado_id',
-        'local_realizacao_servicos_municipio_id',
-        'descricao_servico_discriminacao_servicos',
-        'descricao_servico_observacoes',
-        'valores_retencoes_inss',
-        'valores_retencoes_ir',
-        'valores_retencoes_csll',
-        'valores_retencoes_cofins',
-        'valores_retencoes_pis',
-        'valores_retencoes_outras_retencoes',
-        'detalhamento_especifico_construcao_civil_numero_matricula_cei',
-        'detalhamento_especifico_construcao_civil_numero_art',
-      ],
-    });
+    return await this.notasfiscaisRepository.find();
   }
 
   async findOneOrFail(
@@ -65,21 +30,106 @@ export class NotasFiscaisService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async store(_data: CreateNotasFiscaisDto) {
-    const notafiscal = this.notasfiscaisRepository.create();
+  async store(data: CreateNotasFiscaisDto) {
+    const notafiscal = this.notasfiscaisRepository.create({
+      empresaIdPrestador: data.empresaIdPrestador,
+      empresaIdTomador: data.empresaIdTomador,
+      intermediarioServicoTipoPessoaId: data.intermediarioServicoTipoPessoaId,
+      intermediarioServicoCpfCnpj: data.intermediarioServicoCpfCnpj,
+      intermediarioServicoCcm: data.intermediarioServicoCcm,
+      intermediarioServicoRazaoSocial: data.intermediarioServicoRazaoSocial,
+      intermediarioServicoEstadosId: data.intermediarioServicoEstadosId,
+      intermediarioServicoMunicipiosId: data.intermediarioServicoMunicipiosId,
+      prestacaoServicoExigibilidadeIssId:
+        data.prestacaoServicoExigibilidadeIssId,
+      prestacaoServicoNumeroProcesso: data.prestacaoServicoNumeroProcesso,
+      prestacaoServicoOptanteSimplesNacional:
+        data.prestacaoServicoOptanteSimplesNacional,
+      prestacaoServicoRegimeEspecialTributacao:
+        data.prestacaoServicoRegimeEspecialTributacao,
+      prestacaoServicoIssRetido: data.prestacaoServicoIssRetido,
+      prestacaoServicoValorServico: data.prestacaoServicoValorServico,
+      prestacaoServicoAliquota: data.prestacaoServicoAliquota,
+      prestacaoServicoValorIss: data.prestacaoServicoValorIss,
+      prestacaoServicoValorDeducoes: data.prestacaoServicoValorDeducoes,
+      prestacaoServicoIncentivoFiscal: data.prestacaoServicoIncentivoFiscal,
+      localRealizacaoServicosPaisId: data.localRealizacaoServicosPaisId,
+      localRealizacaoServicosEstadoId: data.localRealizacaoServicosEstadoId,
+      localRealizacaoServicosMunicipioId:
+        data.localRealizacaoServicosMunicipioId,
+      descricaoServicoDiscriminacaoServicos:
+        data.descricaoServicoDiscriminacaoServicos,
+      descricaoServicoObservacoes: data.descricaoServicoObservacoes,
+      valoresRetencoesInss: data.valoresRetencoesInss,
+      valoresRetencoesIr: data.valoresRetencoesIr,
+      valoresRetencoesCsll: data.valoresRetencoesCsll,
+      valoresRetencoesCofins: data.valoresRetencoesCofins,
+      valoresRetencoesPis: data.valoresRetencoesPis,
+      valoresRetencoesOutrasRetencoes: data.valoresRetencoesOutrasRetencoes,
+      detalhamentoEspecificoConstrucaoCivilNumeroMatriculaCei:
+        data.detalhamentoEspecificoConstrucaoCivilNumeroMatriculaCei,
+      detalhamentoEspecificoConstrucaoCivilNumeroArt:
+        data.detalhamentoEspecificoConstrucaoCivilNumeroArt,
+    });
+
     return await this.notasfiscaisRepository.save(notafiscal);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async update(id: string, _data: UpdateNotasFiscaisDto) {
+  async update(id: string, data: UpdateNotasFiscaisDto) {
     const notafiscal = await this.findOneOrFail({ id });
-    this.notasfiscaisRepository.merge(notafiscal);
+    notafiscal.empresaIdPrestador = data.empresaIdPrestador;
+    notafiscal.empresaIdTomador = data.empresaIdTomador;
+    notafiscal.intermediarioServicoTipoPessoaId =
+      data.intermediarioServicoTipoPessoaId;
+    notafiscal.intermediarioServicoCpfCnpj = data.intermediarioServicoCpfCnpj;
+    notafiscal.intermediarioServicoCcm = data.intermediarioServicoCcm;
+    notafiscal.intermediarioServicoRazaoSocial =
+      data.intermediarioServicoRazaoSocial;
+    notafiscal.intermediarioServicoEstadosId =
+      data.intermediarioServicoEstadosId;
+    notafiscal.intermediarioServicoMunicipiosId =
+      data.intermediarioServicoMunicipiosId;
+    notafiscal.prestacaoServicoExigibilidadeIssId =
+      data.prestacaoServicoExigibilidadeIssId;
+    notafiscal.prestacaoServicoNumeroProcesso =
+      data.prestacaoServicoNumeroProcesso;
+    notafiscal.prestacaoServicoOptanteSimplesNacional =
+      data.prestacaoServicoOptanteSimplesNacional;
+    notafiscal.prestacaoServicoRegimeEspecialTributacao =
+      data.prestacaoServicoRegimeEspecialTributacao;
+    notafiscal.prestacaoServicoIssRetido = data.prestacaoServicoIssRetido;
+    notafiscal.prestacaoServicoValorServico = data.prestacaoServicoValorServico;
+    notafiscal.prestacaoServicoAliquota = data.prestacaoServicoAliquota;
+    notafiscal.prestacaoServicoValorIss = data.prestacaoServicoValorIss;
+    notafiscal.prestacaoServicoValorDeducoes =
+      data.prestacaoServicoValorDeducoes;
+    notafiscal.prestacaoServicoIncentivoFiscal =
+      data.prestacaoServicoIncentivoFiscal;
+    notafiscal.localRealizacaoServicosPaisId =
+      data.localRealizacaoServicosPaisId;
+    notafiscal.localRealizacaoServicosEstadoId =
+      data.localRealizacaoServicosEstadoId;
+    notafiscal.localRealizacaoServicosMunicipioId =
+      data.localRealizacaoServicosMunicipioId;
+    notafiscal.descricaoServicoDiscriminacaoServicos =
+      data.descricaoServicoDiscriminacaoServicos;
+    notafiscal.descricaoServicoObservacoes = data.descricaoServicoObservacoes;
+    notafiscal.valoresRetencoesInss = data.valoresRetencoesInss;
+    notafiscal.valoresRetencoesIr = data.valoresRetencoesIr;
+    notafiscal.valoresRetencoesCsll = data.valoresRetencoesCsll;
+    notafiscal.valoresRetencoesCofins = data.valoresRetencoesCofins;
+    notafiscal.valoresRetencoesPis = data.valoresRetencoesPis;
+    notafiscal.valoresRetencoesOutrasRetencoes =
+      data.valoresRetencoesOutrasRetencoes;
+    notafiscal.detalhamentoEspecificoConstrucaoCivilNumeroMatriculaCei =
+      data.detalhamentoEspecificoConstrucaoCivilNumeroMatriculaCei;
+    notafiscal.detalhamentoEspecificoConstrucaoCivilNumeroArt =
+      data.detalhamentoEspecificoConstrucaoCivilNumeroArt;
     return await this.notasfiscaisRepository.save(notafiscal);
   }
 
   async destroy(id: string) {
-    await this.notasfiscaisRepository.findOneOrFail({ id });
+    await this.findOneOrFail({ id });
     this.notasfiscaisRepository.softDelete({ id });
   }
 }

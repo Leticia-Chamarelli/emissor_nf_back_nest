@@ -12,6 +12,7 @@ import { MunicipiosModule } from './app/municipios/municipios.module';
 import { PaisModule } from './app/pais/pais.module';
 import { ExigibilidadeIssModule } from './app/exigibilidade_iss/exigibilidade_iss.module';
 import { EmpresasModule } from './app/empresas/empresas.module';
+import { TipoPessoaModule } from './app/tipo_pessoa/tipo_pessoa.module';
 
 @Module({
   imports: [
@@ -26,17 +27,18 @@ import { EmpresasModule } from './app/empresas/empresas.module';
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
       synchronize: true,
     } as TypeOrmModuleOptions),
-    UsersModule,
-    AuthModule,
-    NotasFiscaisModule,
-    EstadosModule,
     AtividadesModule,
+    AuthModule,
+    EmpresasModule,
+    EstadosModule,
+    ExigibilidadeIssModule,
+    MunicipiosModule,
+    NotasFiscaisModule,
+    PaisModule,
     TipoBairroModule,
     TipoLogradouroModule,
-    MunicipiosModule,
-    PaisModule,
-    ExigibilidadeIssModule,
-    EmpresasModule,
+    TipoPessoaModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],

@@ -33,14 +33,16 @@ export class ExigibilidadeIssService {
   }
 
   async store(data: CreateExigibilidadeIssDto) {
-    const exigibilidadeiss = this.exigibilidadeissRepository.create(data);
+    const exigibilidadeiss = this.exigibilidadeissRepository.create({
+      descricao: data.descricao,
+    });
     return await this.exigibilidadeissRepository.save(exigibilidadeiss);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async update(id: string, _data: UpdateExigibilidadeIssDto) {
+  async update(id: string, data: UpdateExigibilidadeIssDto) {
     const exigibilidadeiss = await this.findOneOrFail({ id });
-    this.exigibilidadeissRepository.merge(exigibilidadeiss);
+    exigibilidadeiss.descricao = data.descricao;
     return await this.exigibilidadeissRepository.save(exigibilidadeiss);
   }
 

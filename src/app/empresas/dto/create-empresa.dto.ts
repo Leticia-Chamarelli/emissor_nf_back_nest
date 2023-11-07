@@ -1,10 +1,10 @@
-import { IsNotEmpty, IsUUID } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class CreateEmpresaDto {
   @IsNotEmpty()
   apelidoEmpresa: string;
 
-  @IsUUID()
+  @IsNotEmpty()
   tipoPessoaId: string;
 
   @IsNotEmpty()
@@ -16,17 +16,17 @@ export class CreateEmpresaDto {
   @IsNotEmpty()
   razaoSocial: string;
 
-  @IsUUID()
+  @IsNotEmpty()
   municipiosId: string;
 
-  @IsUUID()
+  @IsNotEmpty()
   tipoBairroId: string;
 
   @IsNotEmpty()
   bairro: string;
 
   @IsNotEmpty()
-  tipoLogradouro: number;
+  tipoLogradouroId: string;
 
   @IsNotEmpty()
   logradouro: string;
@@ -41,7 +41,7 @@ export class CreateEmpresaDto {
   complemento: string;
 
   @IsNotEmpty()
-  telefone: number;
+  telefone: string;
 
   @IsNotEmpty()
   email: string;
@@ -49,6 +49,6 @@ export class CreateEmpresaDto {
   @IsNotEmpty()
   enderecoExterior: string;
 
-  @IsUUID()
+  @IsNotEmpty()
   atividadeId: string;
 }
