@@ -14,7 +14,7 @@ export class MunicipiosService {
 
   async findAll() {
     return await this.municipiosRepository.find({
-      select: ['id', 'nome', 'estados_id'],
+      select: ['id', 'nome', 'estadosId'],
     });
   }
 
@@ -30,14 +30,18 @@ export class MunicipiosService {
   }
 
   async store(data: CreateMunicipioDto) {
-    const municipio = this.municipiosRepository.create();
+    const municipio = this.municipiosRepository.create({
+      nome: data.nome,
+      estadosId: data.estadosId,
+    });
     return await this.municipiosRepository.save(municipio);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async update(id: string, data: UpdateMunicipioDto) {
     const municipio = await this.findOneOrFail({ id });
-    this.municipiosRepository.merge(municipio);
+    municipio.nome = data.nome;
+    municipio.estadosId = data.estadosId;
     return await this.municipiosRepository.save(municipio);
   }
 

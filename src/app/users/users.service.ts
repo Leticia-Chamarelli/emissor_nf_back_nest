@@ -30,13 +30,17 @@ export class UsersService {
   }
 
   async store(data: CreateUserDto) {
-    const user = this.usersRepository.create(data);
+    const user = this.usersRepository.create({
+      firstName: data.firstName,
+      lastName: data.lastName,
+    });
     return await this.usersRepository.save(user);
   }
 
   async update(id: string, data: UpdateUserDto) {
     const user = await this.findOneOrFail({ id });
-    this.usersRepository.merge(user, data);
+    user.firstName = data.firstName;
+    user.lastName = data.lastName;
     return await this.usersRepository.save(user);
   }
 

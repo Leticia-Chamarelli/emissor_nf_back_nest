@@ -30,14 +30,16 @@ export class PaisService {
   }
 
   async store(data: CreatePaisDto) {
-    const pais = this.paisRepository.create(data);
+    const pais = this.paisRepository.create({
+      nome: data.nome,
+    });
     return await this.paisRepository.save(pais);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async update(id: string, data: UpdatePaisDto) {
     const pais = await this.findOneOrFail({ id });
-    this.paisRepository.merge(pais);
+    pais.nome = data.nome;
     return await this.paisRepository.save(pais);
   }
 

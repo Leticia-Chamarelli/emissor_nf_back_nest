@@ -2,7 +2,7 @@ import { IsNotEmpty, IsUUID } from 'class-validator';
 
 export class CreateMunicipioDto {
   @IsUUID()
-  estados_id: string;
+  estadosId: string;
 
   @IsNotEmpty()
   nome: string;

@@ -7,16 +7,13 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity({ name: 'municipios' })
-export class MunicipiosEntity {
+@Entity({ name: 'tipo_pessoa' })
+export class TipoPessoaEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'varchar', name: 'nome' })
-  nome: string;
-
-  @Column({ type: 'uuid', name: 'estados_id' })
-  estadosId: string;
+  @Column({ type: 'varchar', name: 'descricao', nullable: true }) // Permite nulos
+  descricao: string | null; // Agora pode ser uma string ou null
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: string;

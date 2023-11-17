@@ -30,13 +30,15 @@ export class EstadosService {
   }
 
   async store(data: CreateEstadoDto) {
-    const estado = this.estadosRepository.create(data);
+    const estado = this.estadosRepository.create({
+      nome: data.nome,
+    });
     return await this.estadosRepository.save(estado);
   }
 
   async update(id: string, data: UpdateEstadoDto) {
     const estado = await this.findOneOrFail({ id });
-    this.estadosRepository.merge(estado, data);
+    estado.nome = data.nome;
     return await this.estadosRepository.save(estado);
   }
 

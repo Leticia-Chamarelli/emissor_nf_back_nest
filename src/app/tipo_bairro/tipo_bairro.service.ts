@@ -30,13 +30,15 @@ export class TipoBairroService {
   }
 
   async store(data: CreateTipoBairroDto) {
-    const tipobairro = this.tipobairroRepository.create(data);
+    const tipobairro = this.tipobairroRepository.create({
+      descricao: data.descricao,
+    });
     return await this.tipobairroRepository.save(tipobairro);
   }
 
   async update(id: string, data: UpdateTipoBairroDto) {
     const tipobairro = await this.findOneOrFail({ id });
-    this.tipobairroRepository.merge(tipobairro);
+    tipobairro.descricao = data.descricao;
     return await this.tipobairroRepository.save(tipobairro);
   }
 

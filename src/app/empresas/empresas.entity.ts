@@ -27,17 +27,17 @@ export class EmpresasEntity {
   @Column({ type: 'varchar', name: 'razao_social' })
   razaoSocial: string;
 
-  @Column({ type: 'int', name: 'municipios_id' })
-  municipiosId: number;
+  @Column({ type: 'uuid', name: 'municipios_id' })
+  municipiosId: string;
 
-  @Column({ type: 'int', name: 'tipo_bairro_id' })
-  tipoBairroId: number;
+  @Column({ type: 'uuid', name: 'tipo_bairro_id' })
+  tipoBairroId: string;
 
   @Column({ type: 'varchar', name: 'bairro' })
   bairro: string;
 
-  @Column({ type: 'int', name: 'tipo_logradouro' })
-  tipoLogradouro: number;
+  @Column({ type: 'uuid', name: 'tipo_logradouro_id' })
+  tipoLogradouroId: string;
 
   @Column({ type: 'varchar', name: 'logradouro' })
   logradouro: string;
@@ -51,8 +51,8 @@ export class EmpresasEntity {
   @Column({ type: 'varchar', name: 'complemento' })
   complemento: string;
 
-  @Column({ type: 'int', name: 'telefone' })
-  telefone: number;
+  @Column({ type: 'varchar', name: 'telefone' })
+  telefone: string;
 
   @Column({ type: 'varchar', name: 'email' })
   email: string;
@@ -60,8 +60,8 @@ export class EmpresasEntity {
   @Column({ type: 'varchar', name: 'endereco_exterior' })
   enderecoExterior: string;
 
-  @Column({ type: 'int', name: 'atividade_id' })
-  atividadeId: number;
+  @Column({ type: 'uuid', name: 'atividade_id' })
+  atividadeId: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: string;

@@ -12,127 +12,143 @@ export class NotasFiscaisEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'int', name: 'empresa_id_prestador' })
-  empresa_id_prestador: number;
+  @Column({ type: 'uuid', name: 'empresa_id_prestador' })
+  empresaIdPrestador: string;
 
-  @Column({ type: 'int', name: 'empresa_id_tomador' })
-  empresa_id_tomador: number;
+  @Column({ type: 'uuid', name: 'empresa_id_tomador' })
+  empresaIdTomador: string;
 
-  @Column({ type: 'int', name: 'intermediario_servico_tipo_pessoa_id' })
-  intermediario_servico_tipo_pessoa_id: number;
+  @Column({ type: 'uuid', name: 'intermediario_servico_tipo_pessoa_id' })
+  intermediarioServicoTipoPessoaId: string;
 
   @Column({ type: 'varchar', name: 'intermediario_servico_cpf_cnpj' })
-  intermediario_servico_cpf_cnpj: string;
+  intermediarioServicoCpfCnpj: string;
 
   @Column({ type: 'varchar', name: 'intermediario_servico_ccm' })
-  intermediario_servico_ccm: string;
+  intermediarioServicoCcm: string;
 
   @Column({ type: 'varchar', name: 'intermediario_servico_razao_social' })
-  intermediario_servico_razao_social: string;
+  intermediarioServicoRazaoSocial: string;
 
-  @Column({ type: 'int', name: 'intermediario_servico_estados_id' })
-  intermediario_servico_estados_id: number;
+  @Column({ type: 'uuid', name: 'intermediario_servico_estados_id' })
+  intermediarioServicoEstadosId: string;
 
-  @Column({ type: 'int', name: 'intermediario_servico_municipios_id' })
-  intermediario_servico_municipios_id: number;
+  @Column({ type: 'uuid', name: 'intermediario_servico_municipios_id' })
+  intermediarioServicoMunicipiosId: string;
 
-  @Column({ type: 'int', name: 'prestacao_servico_exigibilidade_iss_id' })
-  prestacao_servico_exigibilidade_iss_id: number;
+  @Column({ type: 'uuid', name: 'prestacao_servico_exigibilidade_iss_id' })
+  prestacaoServicoExigibilidadeIssId: string;
 
   @Column({ type: 'int', name: 'prestacao_servico_numero_processo' })
-  prestacao_servico_numero_processo: number;
+  prestacaoServicoNumeroProcesso: number;
 
   @Column({
     type: 'enum',
     enum: ['SIM', 'NÃO'],
     name: 'prestacao_servico_optante_simples_nacional',
   })
-  prestacao_servico_optante_simples_nacional: string;
+  prestacaoServicoOptanteSimplesNacional: string;
 
   @Column({
     type: 'enum',
     enum: ['SIM', 'NÃO'],
     name: 'prestacao_servico_regime_especial_tributacao',
   })
-  prestacao_servico_regime_especial_tributacao: string;
+  prestacaoServicoRegimeEspecialTributacao: string;
 
   @Column({
     type: 'enum',
     enum: ['SIM', 'NÃO'],
     name: 'prestacao_servico_iss_retido',
   })
-  prestacao_servico_iss_retido: string;
+  prestacaoServicoIssRetido: string;
 
   @Column({ type: 'int', name: 'prestacao_servico_valor_servico' })
-  prestacao_servico_valor_servico: number;
+  prestacaoServicoValorServico: number;
 
   @Column({ type: 'int', name: 'prestacao_servico_aliquota' })
-  prestacao_servico_aliquota: number;
+  prestacaoServicoAliquota: number;
 
   @Column({ type: 'int', name: 'prestacao_servico_valor_iss' })
-  prestacao_servico_valor_iss: number;
+  prestacaoServicoValorIss: number;
 
   @Column({ type: 'int', name: 'prestacao_servico_valor_deducoes' })
-  prestacao_servico_valor_deducoes: number;
+  prestacaoServicoValorDeducoes: number;
 
   @Column({
     type: 'enum',
     enum: ['SIM', 'NÃO'],
     name: 'prestacao_servico_incentivo_fiscal',
   })
-  prestacao_servico_incentivo_fiscal: string;
+  prestacaoServicoIncentivoFiscal: string;
 
-  @Column({ type: 'int', name: 'local_realizacao_servicos_pais_id' })
-  local_realizacao_servicos_pais_id: number;
+  @Column({ type: 'uuid', name: 'local_realizacao_servicos_pais_id' })
+  localRealizacaoServicosPaisId: string;
 
-  @Column({ type: 'varchar', name: 'local_realizacao_servicos_estado_id' })
-  local_realizacao_servicos_estado_id: string;
+  @Column({ type: 'uuid', name: 'local_realizacao_servicos_estado_id' })
+  localRealizacaoServicosEstadoId: string;
 
-  @Column({ type: 'varchar', name: 'local_realizacao_servicos_municipio_id' })
-  local_realizacao_servicos_municipio_id: string;
+  @Column({ type: 'uuid', name: 'local_realizacao_servicos_municipio_id' })
+  localRealizacaoServicosMunicipioId: string;
 
   @Column({ type: 'varchar', name: 'descricao_servico_discriminacao_servicos' })
-  descricao_servico_discriminacao_servicos: string;
+  descricaoServicoDiscriminacaoServicos: string;
 
   @Column({ type: 'varchar', name: 'descricao_servico_observacoes' })
-  descricao_servico_observacoes: string;
+  descricaoServicoObservacoes: string;
 
   @Column({ type: 'int', name: 'valores_retencoes_inss' })
-  valores_retencoes_inss: number;
+  valoresRetencoesInss: number;
 
   @Column({ type: 'int', name: 'valores_retencoes_ir' })
-  valores_retencoes_ir: number;
+  valoresRetencoesIr: number;
 
   @Column({ type: 'int', name: 'valores_retencoes_csll' })
-  valores_retencoes_csll: number;
+  valoresRetencoesCsll: number;
 
   @Column({ type: 'int', name: 'valores_retencoes_cofins' })
-  valores_retencoes_cofins: number;
+  valoresRetencoesCofins: number;
 
   @Column({ type: 'int', name: 'valores_retencoes_pis' })
-  valores_retencoes_pis: number;
+  valoresRetencoesPis: number;
 
   @Column({ type: 'int', name: 'valores_retencoes_outras_retencoes' })
-  valores_retencoes_outras_retencoes: number;
+  valoresRetencoesOutrasRetencoes: number;
 
   @Column({
     type: 'int',
     name: 'detalhamento_especifico_construcao_civil_numero_matricula_cei',
   })
-  detalhamento_especifico_construcao_civil_numero_matricula_cei: number;
+  detalhamentoEspecificoConstrucaoCivilNumeroMatriculaCei: number;
 
   @Column({
     type: 'int',
     name: 'detalhamento_especifico_construcao_civil_numero_art',
   })
-  detalhamento_especifico_construcao_civil_numero_art: number;
+  detalhamentoEspecificoConstrucaoCivilNumeroArt: number;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({
+    name: 'created_at',
+    type: 'datetime',
+    precision: 6,
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
   createdAt: string;
 
-  @UpdateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({
+    name: 'updated_at',
+    type: 'datetime',
+    precision: 6,
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
   updatedAt: string;
 
-  @DeleteDateColumn({ name: 'deleted_at' })
+  @DeleteDateColumn({
+    name: 'deleted_at',
+    type: 'datetime',
+    precision: 6,
+    nullable: true,
+  })
   deletedAt: string;
 }
